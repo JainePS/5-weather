@@ -1,22 +1,22 @@
 const inquirer = require('inquirer');
 require('colors');
 
-const preguntas = [
+const questions = [
     {
         type: 'list',
-        name: 'opcion',
+        name: 'option',
         message: 'What do whish to do?',
         choices: [
             {
-                value: 'opt = 1',
+                value: 1,
                 name: `${ '1.'.green } Search city`
             },
             {
-                value: 'opt = 2',
+                value: 2,
                 name: `${ '2.'.green } Historical`
             },
             {
-                value: 'opt = 0',
+                value: 0,
                 name: `${ '0.'.green } Exit`
             }            
         ]
@@ -32,9 +32,9 @@ const inquirerMenu = async() => {
     console.log('  Select an option'.white );
     console.log('==========================\n'.green);
 
-    const { opcion } = await inquirer.prompt(preguntas);
+    const { option } = await inquirer.prompt(questions);
 
-    return opcion;
+    return option;
 }
 
 const pausa = async() => {
@@ -51,7 +51,7 @@ const pausa = async() => {
     await inquirer.prompt(question);
 }
 
-const leerInput = async( message ) => {
+const readInput = async( message ) => {
 
     const question = [
         {
@@ -115,7 +115,7 @@ const confirmar = async(message) => {
     return ok;
 }   
 
-const mostrarListadoChecklist = async( tareas = [] ) => {
+const showListChecklist = async( tareas = [] ) => {
 
     const choices = tareas.map( (tarea, i) => {
 
@@ -146,8 +146,8 @@ const mostrarListadoChecklist = async( tareas = [] ) => {
 module.exports = {
     inquirerMenu,
     pausa,
-    leerInput,
+    readInput,
     listadoTareasBorrar,
     confirmar,
-    mostrarListadoChecklist
+    showListChecklist
 }

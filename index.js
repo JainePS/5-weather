@@ -9,7 +9,7 @@ const main = async () => {
     do {
 
         opt = await inquirerMenu();
-        
+
         switch (opt) {
             case 1:
                 // to show message
@@ -27,7 +27,7 @@ const main = async () => {
                 console.log(`Temp:`,);
                 console.log(`Min:`,);
                 console.log(`Max:`,);
-            break;
+                break;
         }
 
 
